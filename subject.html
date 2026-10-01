@@ -7,11 +7,17 @@
   </head>
   <body>
     <header>
-      <h1>MiniForum</h1>
+       <h1>MiniForum</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home page</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="connexion.html">Connexion</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-      <a href="index.html">Home page</a>
       <h2>Subject title</h2>
       <p>Author : <br />Date : <br />Categorie :</p>
       <section>
@@ -28,6 +34,28 @@
           <p><strong>Author,date</strong></p>
           <p>message</p>
         </article>
+      </section>
+      <section id = "responses">
+        <h3>Subject responses</h3>
+        <form action = /reponses method = "post">
+          <fieldset>
+            <legend>Your Response</legend>
+          <p>
+            <label for = "pseudo">Pseudo</label>
+            <input type = "text" id = "pseudo" name = "pseudo" required>
+          </p>
+          <p>
+            <label for = "message">Message</label>
+            <textarea id = "message" name = "message" required>
+            </textarea>
+          </p>
+          <button type = "submit">Send</button>
+           
+
+          
+            
+          </fieldset>
+        </form>
       </section>
     </main>
 

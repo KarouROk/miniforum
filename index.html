@@ -19,7 +19,7 @@
           <li><a href="index.html">Home page</a></li>
           <li><a href="inscription.html">Inscription</a></li>
           <li><a href="connexion.html">Connexion</a></li>
-          <li><a href="subject.html">Subjects page</a></li>
+          <li><a href="#subjects">Subjects</a></li>
         </ul>
       </nav>
     </header>
@@ -28,7 +28,7 @@
       <section id="subjects">
         <h2>Recent Subjects</h2>
         <article>
-          <h3>Subject</h3>
+          <a href="subject.html">Subject</a>
           <label
             ><strong
               >author: <br />
@@ -90,11 +90,11 @@
               </select>
             </p>
             <p>
-              <label>Visibility -> </label>
-              <input type = "radio" name = "visibility" value = "public">
-              <label for = "visibility">Public</label>
-              <input type = "radio" name = "visibility" value = "private">
-              <label for = "visibility">Private</label>
+              <label>Visibility -></label>
+              <input type = "radio" id = "visibility-public" name = "visibility" value = "public">
+              <label for = "visibility-public">Public</label>
+              <input type = "radio" id = "visibility-private" name = "visibility" value = "private">
+              <label for = "visibility-private">Private</label>
             </p>
             <button type = "submit" id = "optionsPubli">Send</button>
           </fieldset>

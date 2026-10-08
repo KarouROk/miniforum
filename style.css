@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+
 button {
     background-color: #1d4e89;
     color: white;
@@ -5,3 +14,8 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
+body {
+    line-height: 1.6;
+}
+

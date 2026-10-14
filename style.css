@@ -64,14 +64,6 @@ nav ul li a {
 
 /* === 3. Contenu principal ============================ */
 
-button {
-  background-color: #1d4e89;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 /* === 4. Cartes de sujet ============================== */
 
 .liste-subjects{
@@ -89,7 +81,6 @@ button {
     border: 1px solid #e0e0e0;  
     border-radius: 8px;        
     padding: 16px;        
-    box-sizing: border-box
 
 }
 
@@ -117,5 +108,39 @@ button {
 }
 
 /* === 5. Formulaires ================================== */
+
+input, textarea, select, button {
+    font-family: inherit;
+}
+
+legend {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+fieldset {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #e0e0e0;  
+    border-radius: 8px; 
+    padding: 8px;
+    gap: 10px;
+}
+
+.button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 
 /* === 6. Pied de page ================================= */

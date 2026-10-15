@@ -42,8 +42,7 @@ img{
 /* === 2. En-tete et navigation ======================== */
 .entete {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-flow: column wrap;
     background-color: red;
     border-color: var(--couleur-bordure);
     border-style:solid;
@@ -54,7 +53,7 @@ img{
 
 nav ul {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     gap: 1.25rem;
     list-style: none;
     margin: 0;
@@ -69,6 +68,14 @@ nav ul li a {
     font-family:'Times New Roman', Times, serif;
     border: 1px groove black;
     padding: 1.6rem;
+}
+
+@media (min-width: 48rem) {
+    .entete{ 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    } 
 }
 /* === 3. Contenu principal ============================ */
 

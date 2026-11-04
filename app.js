@@ -35,6 +35,28 @@ function titreExiste(titres, saisie) {
     return existe;
 }
 
+function validerTitre(titres, saisie) {
+    const titre = saisie.trim();
+
+    if (titre === "") {
+        return "Le titre est obligatoire.";
+    }
+
+    if (titre.length < LONGUEUR_MIN) {
+        return "Le titre doit faire au moins " + LONGUEUR_MIN + " caractères.";
+    }
+
+    if (titre.length > LONGUEUR_MAX) {
+        return "Le titre ne doit pas dépasser " + LONGUEUR_MAX + " caractères.";
+    }
+
+    if (titreExiste(titres, titre)) {
+        return "Ce sujet existe déjà.";
+    }
+
+    return "";
+}
+
 
 console.log ( " --- etape 4 ---" );
 console.table(titresTries(titres));
@@ -45,3 +67,11 @@ console.log(titreExiste(titres,"Subject"));
 console.log(titreExiste(titres,"Un titre inventé"));
 
 
+console.log(" --- etape 5 ---");
+console.log(validerTitre(titres , " ")); 
+console.log(validerTitre(titres , " " )); 
+console.log(validerTitre(titres , " Giten ")); 
+console.log(validerTitre(titres ,"a".repeat(80))); 
+console.log(validerTitre(titres , " MadUeKe " )); 
+const reponse = validerTitre(titres ," Comment lire une erreur ?");
+console.log("["+reponse+"]");

@@ -13,17 +13,26 @@ const titres = [
 ];
 console.log(titres);
 
-function titresTries(titres){
-    const trier = titres.sort();
+
+function titresTries(titres) {
+    const trier = [...titres].sort();
     return trier;
 }
-function chercheDansTitres(titres, texte){
-    const chercher = titres.find((n) => n.includes(texte));
+
+function chercheDansTitres(titres, texte) {
+    const chercher = titres.filter((titre) => 
+        titre.toLowerCase().includes(texte.toLowerCase())
+    );
     return chercher;
 }
 
-function titreExiste(titres,saisie){
-    return titres.some((titre) => titre.toLowerCase().includes(saisie.toLowerCase()))
+function titreExiste(titres, saisie) {
+    const saisieNettoyee = saisie.trim().toLowerCase();
+    
+    const titresEnMinuscules = titres.map((titre) => titre.toLowerCase());
+    
+    const existe = titresEnMinuscules.includes(saisieNettoyee);
+    return existe;
 }
 
 

@@ -58,7 +58,7 @@ function validerTitre(titres, saisie) {
 }
 
 
-console.log ( " --- etape 4 ---" );
+/* console.log ( " --- etape 4 ---" );
 console.table(titresTries(titres));
 console.log(titres[0]);
 console.log(chercheDansTitres(titres,"Emptyness"));
@@ -74,4 +74,6 @@ console.log(validerTitre(titres , " Giten "));
 console.log(validerTitre(titres ,"a".repeat(80))); 
 console.log(validerTitre(titres , " MadUeKe " )); 
 const reponse = validerTitre(titres ," Comment lire une erreur ?");
-console.log("["+reponse+"]");
+console.log("["+reponse+"]"); */
+
+

@@ -9,7 +9,7 @@
 
     <title>MiniForum - Home Page</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="app.js" defer ></script>
+    <script src="app.js" defer></script>
   </head>
 
   <body>
@@ -20,6 +20,8 @@
           <li><a href="index.html">Home page</a></li>
           <li><a href="inscription.html">Inscription</a></li>
           <li><a href="connexion.html">Connexion</a></li>
+          <li><a href="subject.html">Subjects Page</a></li>
+
         </ul>
       </nav>
     </header>
@@ -27,55 +29,25 @@
     <main>
       <section class = "liste-subjects" id="subjects">
         <h2>Recent Subjects</h2>
-        <article class = "card-subjects">
-          <a href="subject.html">Subject</a>
-          <br><label
-            ><strong>author:<br />
-              categorie :
-            </strong></label
-          >
-          <p class = "metadata">Par Daniel - 14 message</p>
-        </article>
-
-        <article class = "card-subjects">
-          <h3>empty</h3>
-          <label
-            ><strong
-              >author : <br />
-              categorie :
-            </strong></label
-          >
-          <p></p>
-        </article>
-
-        <article class = "card-subjects">
-          <h3>empty</h3>
-          <label
-            ><strong
-              >author : <br />
-              categorie :
-            </strong></label
-          >
-          <p></p>
-        </article>
       </section>
       <section id = "NewSubjects">
         <h2>New Subject</h2>
-        <form action = /topics method="post">
+        <form id="form-new-subjects" action = /topics method="post" novalidate>
           <fieldset>
             <legend>Your Message</legend>
             <p>
             <label for = "pseudo">Pseudo</label>
             <input type = "text" id = "pseudo" name = "pseudo" placeholder="Example: alice" required>
-            </p>
+            </p class = "message-erreur" id="erreur-pseudo">
             <p>
             <label for = "title">Subject Title</label>
             <input type = "text" id = "title" name = "title" maxlength="80" required>
-            </p>
+            </p class ="message-erreur" id="erreur-title">
             <p>
             <label for = "message">Message</label>
             <textarea id = "message" name = "message" rows = "6" maxlength="500" required>
             </textarea>
+            <p class ="message-erreur" id="erreur-message">
             </p>
           </fieldset>
           <fieldset>

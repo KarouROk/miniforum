@@ -4,6 +4,7 @@
     --couleur-fond : #FFFFFF ;
     --couleur-carte : #FFFFFF ;
     --couleur-bordure : #e0e0e0 ;
+    --couleur-erreur: #A32020;
 
     /* Espacements -- une echelle , pas des valeurs au hasard */
     --espace-petit : 0.5 rem ;
@@ -38,6 +39,12 @@ img{
     height:auto;
 }
 
+.message-erreur {
+    margin : 0.25 rem 0 0;
+    min-height : 1.2 em ;
+    color: var ( --couleur-erreur);
+    font-size:0.875rem;
+}
 
 /* === 2. En-tete et navigation ======================== */
 .entete {

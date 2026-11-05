@@ -56,6 +56,8 @@ function validerTitre(titres, saisie) {
   return "";
 }
 
+
+
 function carteSujet(titre) {
   const article = document.createElement("article");
   article.classList.add("card-subjects");
@@ -73,12 +75,39 @@ function affichersujets(titres) {
     section.append(carteSujet(titre));
   }
 }
+function afficherErreur(idMessage, texte){
+    const messageElement = document.querySelector(idMessage);
+    if (messageElement){
+        messageElement.textContent = texte;
+    }
+}
 
 if (document.querySelector("#subjects") !== null) {
   affichersujets(titres);
-  affichersujets(titresTries(titres));
-
+  
   //Ecouteur du formulaire ici ---->
+  const formulaire = document.querySelector("#form-new-subjects");
+  const champTitre = document.querySelector("h3");
+
+  formulaire.addEventListener("submit",(event) =>{
+    event.preventDefault();
+    const saisie = champTitre.value
+    console.log(event.target.textContent);
+
+    const MessageE = validerTitre(titres,saisie);
+    if(MessageE !== ""){
+        afficherErreur("#erreur-title",saisie);
+        return;
+    }
+    titres.push(saisie.trim());
+    affichersujets(titres);
+    formulaire.reset();
+    saisie.focus();
+
+
+
+
+  } )
 }
 
 /* console.log ( " --- etape 4 ---" );

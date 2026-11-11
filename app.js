@@ -36,7 +36,6 @@ function titreExiste(titres, saisie) {
 
 function validerTitre(titres, saisie) {
   const titre = saisie.trim();
-
   if (titre === "") {
     return "Le titre est obligatoire.";
   }
@@ -84,31 +83,31 @@ function afficherErreur(idMessage, texte){
 
 if (document.querySelector("#subjects") !== null) {
   affichersujets(titres);
-  
-  //Ecouteur du formulaire ici ---->
+
   const formulaire = document.querySelector("#form-new-subjects");
-  const champTitre = document.querySelector("h3");
+  const champPseudo = document.querySelector("#pseudo");
+  const champTitre = document.querySelector("#title");
 
-  formulaire.addEventListener("submit",(event) =>{
+  formulaire.addEventListener("submit", (event) => {
     event.preventDefault();
-    const saisie = champTitre.value
-    console.log(event.target.textContent);
 
-    const MessageE = validerTitre(titres,saisie);
-    if(MessageE !== ""){
-        afficherErreur("#erreur-title",saisie);
-        return;
+    const saisie = champTitre.value;
+    const messageE = validerTitre(titres, saisie);
+
+    if (messageE !== "") {
+      afficherErreur("#erreur-title", messageE);
+      return;
     }
+
+    afficherErreur("#erreur-title", "");
     titres.push(saisie.trim());
     affichersujets(titres);
+
     formulaire.reset();
-    saisie.focus();
-
-
-
-
-  } )
+    champPseudo.focus();
+  });
 }
+
 
 /* console.log ( " --- etape 4 ---" );
 console.table(titresTries(titres));

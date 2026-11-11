@@ -2,6 +2,7 @@ console.log("app.js chargé");
 
 const LONGUEUR_MIN = 5;
 const LONGUEUR_MAX = 80;
+const MESSAGE_MAX = 500;
 
 const titres = [
   "Subject",
@@ -55,7 +56,24 @@ function validerTitre(titres, saisie) {
   return "";
 }
 
+function validerPseudo(saisie) {
+  const pseudo = saisie.trim();
+  if (pseudo === "") {
+    return "le Pseudo est obligatoire";
+  }
+  return "";
+}
+function validerMessage(saisie) {
+  const message = saisie.trim();
+  if (message === "") {
+    return "Le Message est obligatoire.";
+  }
 
+  if (message.length > MESSAGE_MAX) {
+    return "Le Message ne doit pas dépasser " + MESSAGE_MAX + " caractères.";
+  }
+  return "";
+}
 
 function carteSujet(titre) {
   const article = document.createElement("article");
@@ -65,6 +83,7 @@ function carteSujet(titre) {
   article.append(h3);
   return article;
 }
+
 function affichersujets(titres) {
   const section = document.querySelector("#subjects");
   document
@@ -74,11 +93,11 @@ function affichersujets(titres) {
     section.append(carteSujet(titre));
   }
 }
-function afficherErreur(idMessage, texte){
-    const messageElement = document.querySelector(idMessage);
-    if (messageElement){
-        messageElement.textContent = texte;
-    }
+function afficherErreur(idMessage, texte) {
+  const messageElement = document.querySelector(idMessage);
+  if (messageElement) {
+    messageElement.textContent = texte;
+  }
 }
 
 if (document.querySelector("#subjects") !== null) {
@@ -87,42 +106,27 @@ if (document.querySelector("#subjects") !== null) {
   const formulaire = document.querySelector("#form-new-subjects");
   const champPseudo = document.querySelector("#pseudo");
   const champTitre = document.querySelector("#title");
+  const champMessage = document.querySelector("#message");
 
   formulaire.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const saisie = champTitre.value;
-    const messageE = validerTitre(titres, saisie);
+    const erreurPseudo = validerPseudo(champPseudo.value);
+    const erreurTitre = validerTitre(titres, champTitre.value);
+    const erreurMessage = validerMessage(champMessage.value);
 
-    if (messageE !== "") {
-      afficherErreur("#erreur-title", messageE);
+    afficherErreur("#erreur-pseudo", erreurPseudo);
+    afficherErreur("#erreur-title", erreurTitre);
+    afficherErreur("#erreur-message", erreurMessage);
+
+    if (erreurPseudo !== "" || erreurTitre !== "" || erreurMessage !== "") {
       return;
     }
 
-    afficherErreur("#erreur-title", "");
-    titres.push(saisie.trim());
+    titres.push(champTitre.value.trim());
     affichersujets(titres);
 
     formulaire.reset();
     champPseudo.focus();
   });
 }
-
-
-/* console.log ( " --- etape 4 ---" );
-console.table(titresTries(titres));
-console.log(titres[0]);
-console.log(chercheDansTitres(titres,"Emptyness"));
-console.log(chercheDansTitres(titres,"licorne"));
-console.log(titreExiste(titres,"Subject"));
-console.log(titreExiste(titres,"Un titre inventé"));
-
-
-console.log(" --- etape 5 ---");
-console.log(validerTitre(titres , " ")); 
-console.log(validerTitre(titres , " " )); 
-console.log(validerTitre(titres , " Giten ")); 
-console.log(validerTitre(titres ,"a".repeat(80))); 
-console.log(validerTitre(titres , " MadUeKe " )); 
-const reponse = validerTitre(titres ," Comment lire une erreur ?");
-console.log("["+reponse+"]"); */
